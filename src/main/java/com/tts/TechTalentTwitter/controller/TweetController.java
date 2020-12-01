@@ -49,12 +49,12 @@ public class TweetController {
         }
         return "newTweet";
     }
-    
-    @GetMapping(value = "/tweets/{tag}")
-    public String getTweetsByTag(@PathVariable(value="tag") String tag, Model model) {
-        List<Tweet> tweets = tweetService.findAllWithTag(tag);
-        model.addAttribute("tweetList", tweets);
-        model.addAttribute("tag", tag);
-        return "taggedTweets";
-    }
+//
+//    @GetMapping(value = "/tweets/{tag}")
+//    public String getTweetsByTag(@PathVariable(value="tag") String tag, Model model) {
+//        List<Tweet> tweets = tweetService.findAllWithTag(tag);
+//        model.addAttribute("tweetList", tweets);
+//        model.addAttribute("tag", tag);
+//        return "taggedTweets";
+//    }
 }
