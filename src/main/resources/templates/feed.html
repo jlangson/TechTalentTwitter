@@ -16,7 +16,8 @@ and open the template in the editor.
         <h2>Tweets</h2>
         <div th:each="tweet:${tweetList}">
             <h5>@<span th:text="${tweet.user.username}"></span>
-            <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small></h5>
+<!--            <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small></h5>-->
+<!--Fix something on line 19-->
             <p th:utext="${tweet.message}"></p>
     	</div>
     </div>
