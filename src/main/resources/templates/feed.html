@@ -22,7 +22,10 @@ and open the template in the editor.
         <ul class="list-group">
             <div th:each="tweet:${tweetList}">
                 <li class="list-group-item">
-                    <h5>@<span th:text="${tweet.user.username}"></span>
+                    
+                    <a th:href="@{/users/} + ${tweet.user.username}">
+                    
+                        <h5>@<span th:text="${tweet.user.username}"></span></a>
                     <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small></h5>
         <!--Fix something on line 19 said madison? not sure why, the default works fine for me-->
                     <p th:utext="${tweet.message}"></p>
