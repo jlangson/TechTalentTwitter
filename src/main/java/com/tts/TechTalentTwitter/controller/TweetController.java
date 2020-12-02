@@ -16,6 +16,7 @@ import com.tts.TechTalentTwitter.model.Tweet;
 import com.tts.TechTalentTwitter.model.User;
 import com.tts.TechTalentTwitter.service.TweetService;
 import com.tts.TechTalentTwitter.service.UserService;
+import java.util.LinkedList;
 
 @Controller
 public class TweetController {
@@ -27,7 +28,15 @@ public class TweetController {
     
     @GetMapping(value= {"/tweets", "/"})
     public String getFeed(Model model){
-        List<Tweet> tweets = tweetService.findAll();
+//       List<Tweet> tweets = tweetService.findAll();
+        User user = userService.getLoggedInUser();
+        List<User> followings = user.getFollowing(); //following or followers? //following is the people I care about. //followers are the people who care about ME
+        List<Tweet> tweets = new LinkedList<Tweet>();
+        for(User folling : followings){
+            List<Tweet> oneFollowingsTweets = tweetService.findAllByUser(folling);
+            tweets.addAll(oneFollowingsTweets);
+        }
+//        List<Tweet> tweetList = tweetService.findAllByUser(user);
         model.addAttribute("tweetList", tweets);
         return "feed";
     }
