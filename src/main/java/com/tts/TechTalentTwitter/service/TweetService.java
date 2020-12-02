@@ -40,10 +40,10 @@ public class TweetService {
         return tweets;
     }
 
-//    public List<Tweet> findAllWithTag(String tag) {
-//        List<Tweet> tweets = tweetRepository.findByTags_PhraseOrderByCreatedAtDesc(tag);
-//        return formatTweets(tweets);
-//    }
+    public List<Tweet> findAllWithTag(String tag) {
+        List<Tweet> tweets = tweetRepository.findByTags_PhraseOrderByCreatedAtDesc(tag);
+        return formatTweets(tweets);
+    }
 
     public void save(Tweet tweet) {
         handleTags(tweet);
