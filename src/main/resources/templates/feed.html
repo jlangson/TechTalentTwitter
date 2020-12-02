@@ -16,12 +16,19 @@ and open the template in the editor.
     <div class="container">
           <div th:replace="fragments/navbar"></div>
         <h2>Tweets</h2>
-        <div th:each="tweet:${tweetList}">
-            <h5>@<span th:text="${tweet.user.username}"></span>
-<!--            <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small></h5>-->
-<!--Fix something on line 19-->
-            <p th:utext="${tweet.message}"></p>
-    	</div>
+        <div th:if="${tweetList.isEmpty()==true}">
+            <h1>NO TWEETS</h1>
+        </div>
+        <ul class="list-group">
+            <div th:each="tweet:${tweetList}">
+                <li class="list-group-item">
+                    <h5>@<span th:text="${tweet.user.username}"></span>
+                    <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small></h5>
+        <!--Fix something on line 19 said madison? not sure why, the default works fine for me-->
+                    <p th:utext="${tweet.message}"></p>
+                </li>
+            </div>
+        </ul>
     </div>
 </body>
 </html>
