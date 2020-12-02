@@ -29,31 +29,4 @@ public class Tag {
 
     @ManyToMany(mappedBy = "tags")
     private List<Tweet> tweets;
-
-    // If Lombok doesn't work for you then use:
-    // public Long getId() {
-    // return id;
-    // }
-
-    // public String getPhrase() {
-    // return phrase;
-    // }
-
-    // public void setPhrase(String phrase) {
-    // this.phrase = phrase;
-    // }
-
-    // public List<Tweet> getTweets() {
-    // return tweets;
-    // }
-
-    // public void setTweets(List<Tweet> tweets) {
-    // this.tweets = tweets;
-    // }
-
-    // @Override
-    // public String toString() {
-    // return "Tag [id=" + id + ", phrase=" + phrase + ", tweets=" + tweets + "]";
-    // }
-
 }
