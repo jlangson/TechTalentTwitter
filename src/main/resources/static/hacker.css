@@ -7,8 +7,30 @@ and open the template in the editor.
     Created on : Dec 3, 2020, 11:59:59 AM
     Author     : jared
 */
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0px;
+}
+
 h1 {
-    color: red;
+    
+  font-family: 'Montserrat', sans-serif;
+  transform: translateY(-50%);
+  text-align: center;
+  position: fixed;
+  margin: auto;
+  width: 100%;
+  color: #222;
+  
+  top: 20%;
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
+  color: transparent;
+  animation-iteration-count: infinite;
+  z-index: 1;
 }
 
 .videoWrapper {
