@@ -35,25 +35,48 @@ public class TweetController {
 	private TagRepository tagRepository;
 	
     @GetMapping(value= {"/tweets", "/"})
-    public String getFeed(@RequestParam(value="filter", required=false) String filter, Model model){
+    public String getFeed(@RequestParam(value="filter", required=false) String filter, Model model){ //i think this gets a value for filter from thymeleaf when you click the button
     	User loggedInUser = userService.getLoggedInUser();
     	List<TweetDisplay> tweets = new ArrayList<>();
-    	
-    	if (filter == null) {
-    		filter = "all";
-    	}
-    	if (filter.equalsIgnoreCase("following")) {
-    		List<User> following = loggedInUser.getFollowing();
-    		tweets = tweetService.findAllByUsers(following);
-    		model.addAttribute("filter", "following");
-    	}
-    	else {
-    		tweets = tweetService.findAll();
-    		model.addAttribute("filter", "all");
-    	}
-
+        
+        if (filter == null) {
+            filter = "all";
+        }
+        if (filter.equalsIgnoreCase("following")) {
+            List<User> following = loggedInUser.getFollowing();
+            tweets = tweetService.findAllByUsers(following);
+            model.addAttribute("filter", "following");
+        } else if(filter.equalsIgnoreCase("all")){
+            tweets = tweetService.findAll();
+            model.addAttribute("filter", "all");
+        }
+        
+        else {
+            
+            return "hacker";
+                    
+        }
         model.addAttribute("tweetList", tweets);
         return "feed";
+
+       
+
+    	
+//    	if (filter == null) {
+//    		filter = "all";
+//    	}
+//    	if (filter.equalsIgnoreCase("following")) {
+//    		List<User> following = loggedInUser.getFollowing();
+//    		tweets = tweetService.findAllByUsers(following);
+//    		model.addAttribute("filter", "following");
+//    	}
+//    	else {
+//    		tweets = tweetService.findAll();
+//    		model.addAttribute("filter", "all");
+//    	}
+//
+//        model.addAttribute("tweetList", tweets);
+//        return "feed";
     }
     
     @GetMapping(value = "/tweets/new")
