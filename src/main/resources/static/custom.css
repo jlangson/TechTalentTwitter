@@ -11,3 +11,11 @@ and open the template in the editor.
 #me{
     color:black;
 }
+
+a.username {
+    color:  #00aced;
+}
+
+a.tag {
+    color: #0084b4;
+}
