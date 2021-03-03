@@ -33,7 +33,7 @@ and open the template in the editor.
                     
                     
                     <a class="username" th:href="@{/users/} + ${tweet.user.username}">
-                        <h5>@<span th:text="${tweet.user.username}"></span>
+                        <h5>@<span th:text="${tweet.user.username}"></span></h5>
                     </a>
                     <small th:text="${tweet.date}"></small></h5>
                     <p th:utext="${tweet.message}"></p>
