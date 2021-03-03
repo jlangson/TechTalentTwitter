@@ -28,14 +28,13 @@ and open the template in the editor.
         </div>
         <ul class="list-group">
             <div th:each="tweet:${tweetList}">
-                <li class="list-group-item"> 
-                    
-                    
-                    
-                    <a class="username" th:href="@{/users/} + ${tweet.user.username}">
-                        <h5>@<span th:text="${tweet.user.username}"></span></h5>
-                    </a>
-                    <small th:text="${tweet.date}"></small></h5>
+                <li class="list-group-item">
+                    <h5>
+                        <a class="username" th:href="@{/users/} + ${tweet.user.username}">
+                            @<span th:text="${tweet.user.username}"></span>
+                        </a>
+                        <small th:text="${tweet.date}"></small>
+                    </h5>
                     <p th:utext="${tweet.message}"></p>
                 </li>
             </div>
